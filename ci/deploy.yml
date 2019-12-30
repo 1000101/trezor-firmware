@@ -205,10 +205,8 @@ ui tests core fixtures deploy:
   dependencies:
     - core unix device ui test
   script:
-    - cd ci
-    - python prepare_ui_artifacts.py
-    - echo "Deploying to $DEST"
-    - rsync --delete -va tmp/* "$DEST"
+    - echo "Deploying to $DEPLOY_PATH"
+    - rsync --delete -va ci/tmp/* "$DEPLOY_PATH"
 #  only:
 #    - master
   tags:
